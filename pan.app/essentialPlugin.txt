@@ -1,0 +1,5 @@
+koa-router  ——  路由处理
+koa-bodyparser —— post请求的body解析
+koa-static —— 静态资源读取
+nodemon —— 服务自动重启（全局-g和本地-S都需要安装）
+pm2 —— node进程管理
