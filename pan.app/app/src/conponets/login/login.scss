@@ -1,0 +1,33 @@
+@import '../me/me.scss';
+@import '../../font/iconfont.css';
+@import '../../css/public.scss';
+@import '../../css/normalize.css';
+
+// 百度logo
+.baidu-logo {
+    display: block;
+    width: r(140);
+    margin: r(38) auto r(28);
+} 
+
+//——————登陆表单——————//
+.login-form {
+    width: r(345);
+    margin: 0 auto;
+
+    .login-btn {
+        width: 100%;
+        display: block;
+        font-size: r(18);
+        margin-top: r(24);
+        @include hcenter(48);
+        @extend .me-btn;
+    }
+    .login-btn-loading {
+        @extend .login-btn;
+        background-color: #a4c7f3;
+    }
+    .login-btn-loading:active {
+        background-color: #a4c7f3;
+    }
+}

@@ -1,0 +1,219 @@
+/*
+
+一些常用组件的css
+
+*/
+
+/* ===========================
+            通用工具
+   =========================== */
+
+// px转换为rem
+@function r($px) {
+    @return $px / 25 * 1rem;
+}
+
+@mixin hcenter($px) {
+    height: r($px);
+    line-height: r($px);
+}
+
+// 超出宽度省略号
+@mixin ell() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ===========================
+            通用样式
+   =========================== */
+
+// 主题颜色 theme color
+$tc: #3888ff;
+$mygrey: rgba(0, 0, 0, 0.5);
+$activegrey: rgba(200, 200, 200, .7);
+.displayHide {display: hidden;}
+.hide {display: none !important;}
+.show {display: block;}
+// 倒置
+.inverse {
+    transform: rotate(180deg);
+}
+
+// 全屏遮罩层
+.shadow-block {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: $mygrey;
+}
+
+// 通用按钮
+.me-btn {
+    padding: 0 r(8);
+    color: #fff;
+    font-size: r(18);
+    text-align: center;
+    background-color: $tc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+.me-btn:active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+// 通用输入input
+.me-input-wrap {
+    width: 100%;
+    height: r(48);
+    align-items: center;
+    display: flex;
+    padding: 0 r(12);
+    border: 2px solid #ebebeb;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+
+    input {
+        flex: 1;
+        border: none;
+        font-size: r(14);
+    }
+
+    .me-sider {
+        font-size: r(16);
+        padding: r(6);
+        color: black;
+    }
+
+    .down-block {
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1;
+        left: 0;
+        top: r(48) - r(2);
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.2);
+        max-height: r(100);
+        overflow-y: scroll;
+        
+        li {
+            display: flex;
+            font-size: r(14);
+            color: $mygrey;
+            padding: r(10) r(20) r(10) r(10);
+
+            p {
+                margin: 0;
+                flex: 1;
+            }
+        }
+    }
+
+    & + & {
+        margin-top: -2px;
+    }
+    &:nth-last-of-type(1) {
+        margin-bottom: 2px; 
+    }
+}
+
+/* ===========================
+            通用动画
+   =========================== */
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes loading {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+
+/* ===========================
+             组件
+   =========================== */
+
+// 头部：返回键、标题、更多其他键
+.me-header {
+    height: r(50);
+    padding: 0 r(8) 0 r(12);
+    background-color: $tc;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .me-back {
+        @extend .me-btn;
+    }
+    .me-back:active {
+        background-color: $tc;
+        color: black;
+    }
+
+    .me-h {
+        text-align: center;
+        margin: 0;
+        font-size: r(18);
+        flex: 1;
+    }
+
+    .me-other-btn {
+        @extend .me-btn;
+        border: 2px solid #2e6fd1;
+        height: r(30);
+        font-size: r(14);
+        line-height: r(25);
+    }
+}
+
+// 加载图标（旋转）
+.me-loading-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .8);
+        width: r(60);
+        height: r(60);
+        text-align: center;
+
+        .me-loading {
+            animation:loading 1s linear infinite;
+            -webkit-animation:loading 1s linear infinite; /*Safari and Chrome*/
+            color: #FFF;
+            font-size: r(28);
+            line-height: r(60);
+            display: block;
+        }
+    }
+}
+.me-loading-show {
+    display: flex;
+}
+.me-loading-hide {
+    display: none;
+}

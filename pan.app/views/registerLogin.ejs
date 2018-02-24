@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%- documentTitle %></title>
+    <script src="js/zepto.js"></script>
+</head>
+<body>
+    <h1>login</h1>
+    <section class="login-form">
+        <input type="text" id="user" name="user" placeholder="请输入账号">
+        <input type="password" id="psw" name="psw" placeholder="请输入密码">
+        <input type="button" id="login" value="登陆">
+        <input type="button" id="register" value="注册">
+    </section>
+    <script src="bundle.js"></script>
+    <script>
+        document.getElementById('login').onclick = () => {
+            let data = {
+                user: document.getElementById('user').value,
+                psw: document.getElementById('psw').value
+            }
+            console.log(data)
+            $.ajax({
+                type: 'POST',
+                url: 'submitLogin',
+                data: data,
+                success: (data) => {
+                    console.log('data', data)
+                },
+                error: (xhr, errType, err) => {
+                    console.log(err)
+                }
+            })
+        }
+
+        $('#register').on('click', () => {
+            let data = {
+                user: document.getElementById('user').value,
+                psw: document.getElementById('psw').value
+            }
+            console.log(data)
+            $.ajax({
+                type: 'POST',
+                url: 'submitRegister',
+                data: data,
+                success: (data) => {
+                    console.log('data', data)
+                },
+                error: (xhr, errType, err) => {
+                    console.log(err)
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>

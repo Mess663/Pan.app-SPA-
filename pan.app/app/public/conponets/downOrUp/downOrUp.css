@@ -1,0 +1,286 @@
+@charset "UTF-8";
+/*
+
+一些常用组件的css
+
+*/
+/* ===========================
+            通用工具
+   =========================== */
+/* ===========================
+            通用样式
+   =========================== */
+@import url(../../font/iconfont.css);
+@import url(../../css/normalize.css);
+.displayHide {
+  display: hidden; }
+
+.hide {
+  display: none !important; }
+
+.show {
+  display: block; }
+
+.inverse {
+  transform: rotate(180deg); }
+
+.shadow-block {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.me-btn, .me-header .me-back, .me-header .me-other-btn {
+  padding: 0 0.32rem;
+  color: #fff;
+  font-size: 0.72rem;
+  text-align: center;
+  background-color: #3888ff;
+  border-radius: 2px;
+  box-sizing: border-box; }
+
+.me-btn:active, .me-header .me-back:active, .me-header .me-other-btn:active {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.me-input-wrap {
+  width: 100%;
+  height: 1.92rem;
+  align-items: center;
+  display: flex;
+  padding: 0 0.48rem;
+  border: 2px solid #ebebeb;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: #fff;
+  position: relative; }
+  .me-input-wrap input {
+    flex: 1;
+    border: none;
+    font-size: 0.56rem; }
+  .me-input-wrap .me-sider {
+    font-size: 0.64rem;
+    padding: 0.24rem;
+    color: black; }
+  .me-input-wrap .down-block {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+    left: 0;
+    top: 1.84rem;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.2);
+    max-height: 4rem;
+    overflow-y: scroll; }
+    .me-input-wrap .down-block li {
+      display: flex;
+      font-size: 0.56rem;
+      color: rgba(0, 0, 0, 0.5);
+      padding: 0.4rem 0.8rem 0.4rem 0.4rem; }
+      .me-input-wrap .down-block li p {
+        margin: 0;
+        flex: 1; }
+  .me-input-wrap + .me-input-wrap {
+    margin-top: -2px; }
+  .me-input-wrap:nth-last-of-type(1) {
+    margin-bottom: 2px; }
+
+/* ===========================
+            通用动画
+   =========================== */
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+@-webkit-keyframes loading {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg); } }
+
+/* ===========================
+             组件
+   =========================== */
+.me-header {
+  height: 2rem;
+  padding: 0 0.32rem 0 0.48rem;
+  background-color: #3888ff;
+  display: flex;
+  align-items: center;
+  color: #fff; }
+  .me-header .me-back:active {
+    background-color: #3888ff;
+    color: black; }
+  .me-header .me-h {
+    text-align: center;
+    margin: 0;
+    font-size: 0.72rem;
+    flex: 1; }
+  .me-header .me-other-btn {
+    border: 2px solid #2e6fd1;
+    height: 1.2rem;
+    font-size: 0.56rem;
+    line-height: 1rem; }
+
+.me-loading-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center; }
+  .me-loading-wrap div {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 2.4rem;
+    height: 2.4rem;
+    text-align: center; }
+    .me-loading-wrap div .me-loading {
+      animation: loading 1s linear infinite;
+      -webkit-animation: loading 1s linear infinite;
+      /*Safari and Chrome*/
+      color: #FFF;
+      font-size: 1.12rem;
+      line-height: 2.4rem;
+      display: block; }
+
+.me-loading-show {
+  display: flex; }
+
+.me-loading-hide {
+  display: none; }
+
+a {
+  text-decoration: none; }
+
+input {
+  outline: none; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+html {
+  height: 100%;
+  overflow: hidden; }
+  html body {
+    background-color: #f5f5f5;
+    height: 100%; }
+
+p {
+  margin: 0; }
+
+/* ===============
+    重用样式
+   =============== */
+/*路由切换动画*/
+.example-enter {
+  opacity: 0.01; }
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in; }
+
+.example-exit {
+  opacity: 1; }
+
+.example-exit.example-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in; }
+
+.me-header > .more-btn {
+  border: none;
+  font-size: 0.96rem;
+  margin-right: 0.4rem; }
+
+.search-content .list-tab > ul {
+  display: flex;
+  background-color: #fff;
+  height: 1.6rem; }
+  .search-content .list-tab > ul > li {
+    flex: 1;
+    color: #a0a0a0;
+    display: flex;
+    align-items: center; }
+    .search-content .list-tab > ul > li.active {
+      color: #3888ff;
+      border-bottom: 2px solid #3888ff; }
+    .search-content .list-tab > ul > li > p {
+      font-size: 0.6rem;
+      text-align: center;
+      flex: 0 0 100%; }
+  .search-content .list-tab > ul > li + li > p {
+    border-left: 1px solid #ededec; }
+
+.search-content .list-tab .doc-dirname {
+  height: 1.2rem;
+  background-color: #f0f0f0;
+  color: #565656;
+  padding: 0 0.4rem;
+  line-height: 1.2rem;
+  font-size: 0.6rem;
+  margin: 0; }
+
+.search-content .download-wrap > p {
+  height: 0.96rem;
+  line-height: 0.96rem;
+  font-size: 0.6rem;
+  padding: 0 0.4rem;
+  color: #565656;
+  background-color: #e9e9e9; }
+
+.search-content .download-wrap > ul {
+  background-color: #fff; }
+  .search-content .download-wrap > ul > li {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem; }
+    .search-content .download-wrap > ul > li .doc-picture {
+      flex: 0 0 1.8rem;
+      height: 1.8rem;
+      background-color: #f0c34a;
+      color: #e1b230;
+      font-size: 0.72rem;
+      display: inline-flex;
+      word-break: break-all;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.4rem;
+      border-radius: 2px; }
+    .search-content .download-wrap > ul > li .doc-info-wrap {
+      flex: 1; }
+      .search-content .download-wrap > ul > li .doc-info-wrap > h4 {
+        font-size: 0.72rem;
+        margin: 0.16rem 0; }
+      .search-content .download-wrap > ul > li .doc-info-wrap > p {
+        color: #aaa;
+        font-size: 0.6rem; }
+      .search-content .download-wrap > ul > li .doc-info-wrap .downloading-p-wrap {
+        display: flex;
+        justify-content: space-between; }
+    .search-content .download-wrap > ul > li .download-toogle-icon {
+      font-size: 1.2rem;
+      margin-left: 0.48rem;
+      color: #6d6d6d; }
+
+/*TAB切换动画*/
+.slide-enter {
+  left: 15rem; }
+
+.slide-enter.slide-enter-active {
+  left: 0;
+  transition: left 500ms ease-in; }
+
+.slide-exit {
+  left: 0; }
+
+.slide-exit.slide-exit-active {
+  left: 15rem;
+  transition: left 500ms ease-in; }
